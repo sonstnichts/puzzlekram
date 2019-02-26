@@ -1,35 +1,29 @@
 package de.cau.infprogoo.lighthouse;
 
-
-
 import java.awt.Color;
 
 import acm.graphics.GCompound;
 import acm.graphics.GLine;
 import acm.graphics.GPolygon;
-import acm.graphics.GRect;
 import acm.program.GraphicsProgram;
 
-public class Test1 extends GraphicsProgram {
+public class GView extends GraphicsProgram implements View {
 
-	public void run() {
+
+	@Override
+	public void update(Model world) {
+		// TODO Auto-generated method stub
 		
-		setSize(425, 635);
-		add(new gitter());
-		add(new obenlinks());
-		add(new obenrechts());
-		add(new untenlinks());
-		add(new untenrechts());
-		add(new rechteck());
 	}
+	
+	
 
 }
+class Obenlinks extends GCompound {
 
-class obenlinks extends GCompound {
+	public Obenlinks(int x, int y) {
 
-	public obenlinks() {
-
-		GPolygon obenL = new GPolygon();
+		GPolygon obenL = new GPolygon(x, y);
 		obenL.addPolarEdge(200, 90);
 		obenL.addPolarEdge(200, 0);
 		obenL.addPolarEdge(100, 270);
@@ -44,11 +38,11 @@ class obenlinks extends GCompound {
 	}
 }
 
-class obenrechts extends GCompound {
+class Obenrechts extends GCompound {
 
-	public obenrechts() {
+	public Obenrechts(int x, int y) {
 
-		GPolygon obenL = new GPolygon();
+		GPolygon obenL = new GPolygon(x, y);
 		obenL.addPolarEdge(100, 90);
 		obenL.addPolarEdge(200, 0);
 		obenL.addPolarEdge(200, 270);
@@ -62,12 +56,11 @@ class obenrechts extends GCompound {
 
 	}
 }
+class Untenlinks extends GCompound {
 
-class untenlinks extends GCompound {
+	public Untenlinks(int x, int y) {
 
-	public untenlinks() {
-
-		GPolygon obenL = new GPolygon();
+		GPolygon obenL = new GPolygon(x, y);
 		obenL.addPolarEdge(200, 90);
 		obenL.addPolarEdge(100, 0);
 		obenL.addPolarEdge(100, 270);
@@ -81,12 +74,11 @@ class untenlinks extends GCompound {
 
 	}
 }
+class Untenrechts extends GCompound {
 
-class untenrechts extends GCompound {
+	public Untenrechts(int x, int y) {
 
-	public untenrechts() {
-
-		GPolygon obenL = new GPolygon();
+		GPolygon obenL = new GPolygon(x, y);
 		obenL.addPolarEdge(100, 90);
 		obenL.addPolarEdge(100, 0);
 		obenL.addPolarEdge(100, 90);
@@ -101,11 +93,11 @@ class untenrechts extends GCompound {
 	}
 }
 
-class rechteck extends GCompound {
+class Rechteck extends GCompound {
 
-	public rechteck() {
+	public Rechteck(int x, int y) {
 
-		GPolygon obenL = new GPolygon();
+		GPolygon obenL = new GPolygon(x, y);
 		obenL.addPolarEdge(200, 90);
 		obenL.addPolarEdge(200, 0);
 		obenL.addPolarEdge(200, 270);
@@ -118,9 +110,9 @@ class rechteck extends GCompound {
 	}
 }
 
-class gitter extends GCompound {
+class Gitter extends GCompound {
 
-	public gitter() {
+	public Gitter() {
 
 		for (int i = 0; i <7 ; i++) {
 			GLine obenL = new GLine(0, 0+i*105, 420, 0+i*105);
