@@ -91,7 +91,8 @@ public Figures(String figur,int x, int y) {
 		obenL.addPolarEdge(100, 180);
 		obenL.addPolarEdge(100, 270);
 		obenL.addPolarEdge(100, 180);
-		obenL.setLocation(5, 205);
+		//muss an (5,205) sein in der Grundaufstellung
+		obenL.setLocation(x, y);
 		obenL.setFilled(true);
 		obenL.setColor(Color.RED);
 		add(obenL);
@@ -105,7 +106,8 @@ public Figures(String figur,int x, int y) {
 		obenL.addPolarEdge(100, 180);
 		obenL.addPolarEdge(100, 90);
 		obenL.addPolarEdge(100, 180);
-		obenL.setLocation(215, 105);
+		//(215, 105)
+		obenL.setLocation(x, y);
 		obenL.setFilled(true);
 		obenL.setColor(Color.BLUE);
 		add(obenL);
@@ -119,7 +121,8 @@ public Figures(String figur,int x, int y) {
 		obenL.addPolarEdge(100, 0);
 		obenL.addPolarEdge(100, 270);
 		obenL.addPolarEdge(200, 180);
-		obenL.setLocation(5, 415);
+		//(5, 415)
+		obenL.setLocation(x, y);
 		obenL.setFilled(true);
 		obenL.setColor(Color.YELLOW);
 		add(obenL);
@@ -133,7 +136,8 @@ public Figures(String figur,int x, int y) {
 		obenL.addPolarEdge(100, 0);
 		obenL.addPolarEdge(200, 270);
 		obenL.addPolarEdge(200, 180);
-		obenL.setLocation(215, 415);
+		//(215, 415)
+		obenL.setLocation(x, y);
 		obenL.setFilled(true);
 		obenL.setColor(Color.GREEN);
 		add(obenL);
@@ -145,7 +149,8 @@ public Figures(String figur,int x, int y) {
 		obenL.addPolarEdge(200, 0);
 		obenL.addPolarEdge(200, 270);
 		obenL.addPolarEdge(200, 180);
-		obenL.setLocation(110, 310);
+		//(110, 310)
+		obenL.setLocation(x, y);
 		obenL.setFilled(true);
 		obenL.setColor(Color.ORANGE);
 		add(obenL);
