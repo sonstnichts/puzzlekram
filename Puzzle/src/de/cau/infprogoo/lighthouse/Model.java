@@ -21,15 +21,15 @@ public class Model {
 	
 
 //Position of the player in a 2D Array
-	private int player1 = 1;
+	private int playerOL = 1;
 
-	private int player2 = 2;
+	private int playerOR = 2;
 
-	private int player3 = 3;
+	private int playerR = 3;
 
-	private int player4 = 4;
+	private int playerUL = 4;
 
-	private int player5 = 5;
+	private int playerUR = 5;
 
 	public Model(int width, int height) {
 
@@ -71,50 +71,50 @@ public class Model {
 		return HEIGHT;
 	}
 
-	public int getPlayer1() {
-		return player1;
+	public int getPlayerOL() {
+		return playerOL;
 	}
 
-	public void setPlayer1(int player1) {
-		this.player1 = player1;
+	public void setPlayerOL(int playerOL) {
+		this.playerOL = playerOL;
 		updateViews();
 	}
 
-	public int getPlayer2() {
-		return player2;
+	public int getPlayerOR() {
+		return playerOR;
 	}
 
-	public void setPlayer2(int player2) {
-		this.player2 = player2;
+	public void setPlayerOR(int playerOR) {
+		this.playerOR = playerOR;
 		updateViews();
 	}
 
-	public int getPlayer3() {
-		return player3;
+	public int getPlayerR() {
+		return playerR;
 	}
 
-	public void setPlayer3(int player3) {
-		this.player3 = player3;
-		updateViews();
-
-	}
-
-	public int getPlayer4() {
-		return player4;
-	}
-
-	public void setPlayer4(int player4) {
-		this.player4 = player4;
+	public void setPlayerR(int playerR) {
+		this.playerR = playerR;
 		updateViews();
 	}
 
-	public int getPlayer5() {
-		return player5;
+	public int getPlayerUL() {
+		return playerUL;
 	}
 
-	public void setPlayer5(int player5) {
-		this.player5 = player5;
+	public void setPlayerUL(int playerUL) {
+		this.playerUL = playerUL;
 		updateViews();
 	}
 
+	public int getPlayerUR() {
+		return playerUR;
+	}
+
+	public void setPlayerUR(int playerUR) {
+		this.playerUR = playerUR;
+		updateViews();
+	}
+
+	
 }
