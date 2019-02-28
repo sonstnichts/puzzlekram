@@ -12,26 +12,31 @@ import java.util.Set;
  */
 public class Model {
 
-	int[][] spielfeld = new int[4][6];
+	int[] spielfeld = {1,1,2,2,1,3,3,2,4,3,3,5,4,4,5,5,0,0,0,0,0,0,0,0};
 
 	private final int WIDTH;
 	private final int HEIGHT;
+	
+	//Spielfeld den Playern zuordnen
+	
 
 //Position of the player in a 2D Array
-	private int player1;
+	private int player1 = 1;
 
-	private int player2;
+	private int player2 = 2;
 
-	private int player3;
+	private int player3 = 3;
 
-	private int player4;
+	private int player4 = 4;
 
-	private int player5;
+	private int player5 = 5;
 
 	public Model(int width, int height) {
 
 		this.WIDTH = width;
 		this.HEIGHT = height;
+		
+		
 	}
 	
 	
