@@ -6,157 +6,57 @@ import acm.graphics.GCompound;
 import acm.graphics.GLine;
 import acm.graphics.GPolygon;
 
-
-
 public class GView extends GCompound implements View {
 
 	final static int WIDTH = 400;
 	final static int HEIGHT = 600;
 	// The background where we play in
-	private final Figures backGrounder;
+	private final GLine backGrounder;
 	// Our pieces
-	private final Figures obenLinks;
-	private final Figures obenRechts;
-	private final Figures untenLinks;
-	private final Figures untenRechts;
-	private final Figures rechtEck;
+	private final ObenLinks obenLinks;
+	private final ObenRechts obenRechts;
+	private final UntenLinks untenLinks;
+	private final UntenRechts untenRechts;
+	private final Rechteck rechteck;
 
 	public GView() {
-		backGrounder = new Figures("gitter", 0,0);
-		add(backGrounder);
-
-		obenLinks = new Figures("obenLinks", 50,0);
+		// Figuren initialisieren
+		obenLinks = new ObenLinks();
 		add(obenLinks);
-		
-		obenRechts = new Figures("obenRechts", 0,0);
-		add(obenRechts); 
-		
-		untenLinks = new Figures("untenLinks", 0,0);
+
+		obenRechts = new ObenRechts();
+		add(obenRechts);
+
+		untenLinks = new UntenLinks();
 		add(untenLinks);
-		
-		untenRechts = new Figures("untenRechts", 0,0);
+
+		untenRechts = new UntenRechts();
 		add(untenRechts);
-		
-		rechtEck = new Figures("rechteck", 0,0);
-		add(rechtEck);
-		
-		
+
+		rechteck = new Rechteck();
+		add(rechteck);
+
+		backGrounder = gitter();
+
+		// startposition
+		obenLinks.setLocation(5, 205);
+		obenRechts.setLocation(215, 105);
+		untenLinks.setLocation(5, 415);
+		untenRechts.setLocation(215, 415);
+		rechteck.setLocation(110, 310);
 
 	}
 
 	@Override
-	public void update(Model world) {
-		double cellWidth = WIDTH / world.getWIDTH();
-		double cellHeight = HEIGHT / world.getHEIGHT();
+	public void update(Model model) {
+		double cellWidth = WIDTH / model.getWIDTH();
+		double cellHeight = HEIGHT / model.getHEIGHT();
 
-		obenRechts.setLocation(Model.getPlayer1());
-		
+		// obenRechts.setLocation(x, y);
+
 	}
 
-}
-
-class Figures extends GCompound {
-	
-	
-public Figures(String figur,int x, int y) {
-	
-	switch(figur) {
-	case "obenLinks":
-		obenLinks(x,y);
-		break;
-	case "obenRechts":
-		obenRechts(x,y);
-		break;
-	case "untenLinks":
-		untenLinks(x,y);
-		break;
-	case "untenRechts":
-		untenRechts(x,y);
-		break;
-	case "rechteck":
-		rechteck(x,y);
-		break;
-	case "gitter":
-		gitter();
-		break;
-	}
-}
-	
-
-	public void obenLinks(int x, int y) {
-		GPolygon obenL = new GPolygon(x, y);
-		obenL.addPolarEdge(200, 90);
-		obenL.addPolarEdge(200, 0);
-		obenL.addPolarEdge(100, 270);
-		obenL.addPolarEdge(100, 180);
-		obenL.addPolarEdge(100, 270);
-		obenL.addPolarEdge(100, 180);
-		//muss an (5,205) sein in der Grundaufstellung
-		obenL.setLocation(x, y);
-		obenL.setFilled(true);
-		obenL.setColor(Color.RED);
-		add(obenL);
-	}
-
-	public void obenRechts(int x, int y) {
-		GPolygon obenL = new GPolygon(x, y);
-		obenL.addPolarEdge(100, 90);
-		obenL.addPolarEdge(200, 0);
-		obenL.addPolarEdge(200, 270);
-		obenL.addPolarEdge(100, 180);
-		obenL.addPolarEdge(100, 90);
-		obenL.addPolarEdge(100, 180);
-		//(215, 105)
-		obenL.setLocation(x, y);
-		obenL.setFilled(true);
-		obenL.setColor(Color.BLUE);
-		add(obenL);
-	}
-
-	public void untenLinks(int x, int y) {
-		GPolygon obenL = new GPolygon(x, y);
-		obenL.addPolarEdge(200, 90);
-		obenL.addPolarEdge(100, 0);
-		obenL.addPolarEdge(100, 270);
-		obenL.addPolarEdge(100, 0);
-		obenL.addPolarEdge(100, 270);
-		obenL.addPolarEdge(200, 180);
-		//(5, 415)
-		obenL.setLocation(x, y);
-		obenL.setFilled(true);
-		obenL.setColor(Color.YELLOW);
-		add(obenL);
-	}
-
-	public void untenRechts(int x, int y) {
-		GPolygon obenL = new GPolygon(x, y);
-		obenL.addPolarEdge(100, 90);
-		obenL.addPolarEdge(100, 0);
-		obenL.addPolarEdge(100, 90);
-		obenL.addPolarEdge(100, 0);
-		obenL.addPolarEdge(200, 270);
-		obenL.addPolarEdge(200, 180);
-		//(215, 415)
-		obenL.setLocation(x, y);
-		obenL.setFilled(true);
-		obenL.setColor(Color.GREEN);
-		add(obenL);
-	}
-
-	public void rechteck(int x, int y) {
-		GPolygon obenL = new GPolygon(x, y);
-		obenL.addPolarEdge(200, 90);
-		obenL.addPolarEdge(200, 0);
-		obenL.addPolarEdge(200, 270);
-		obenL.addPolarEdge(200, 180);
-		//(110, 310)
-		obenL.setLocation(x, y);
-		obenL.setFilled(true);
-		obenL.setColor(Color.ORANGE);
-		add(obenL);
-	}
-
-	public void gitter() {
+	public GLine gitter() {
 		for (int i = 0; i < 7; i++) {
 			GLine obenL = new GLine(0, 0 + i * 105, 420, 0 + i * 105);
 			add(obenL);
@@ -165,5 +65,131 @@ public Figures(String figur,int x, int y) {
 			GLine obenL = new GLine(0 + i * 105, 0, 0 + i * 105, 630);
 			add(obenL);
 		}
+		return backGrounder;
 	}
+
+	/**
+	 * Winkel-Objekt oben links.
+	 * 
+	 * @author olegattow
+	 *
+	 */
+	class ObenLinks extends GCompound {
+
+		public ObenLinks() {
+			GPolygon obenL = new GPolygon();
+			obenL.addPolarEdge(200, 90);
+			obenL.addPolarEdge(200, 0);
+			obenL.addPolarEdge(100, 270);
+			obenL.addPolarEdge(100, 180);
+			obenL.addPolarEdge(100, 270);
+			obenL.addPolarEdge(100, 180);
+			// muss an (5,205) sein in der Grundaufstellung
+			// obenL.setLocation(x, y);
+			obenL.setFilled(true);
+			obenL.setColor(Color.RED);
+			add(obenL);
+		}
+
+	}
+
+	/**
+	 * Winkel-Objekt oben rechts.
+	 * 
+	 * @author olegattow
+	 *
+	 */
+	class ObenRechts extends GCompound {
+
+		public ObenRechts() {
+			GPolygon obenL = new GPolygon();
+			obenL.addPolarEdge(100, 90);
+			obenL.addPolarEdge(200, 0);
+			obenL.addPolarEdge(200, 270);
+			obenL.addPolarEdge(100, 180);
+			obenL.addPolarEdge(100, 90);
+			obenL.addPolarEdge(100, 180);
+			// (215, 105)
+			// obenL.setLocation(x, y);
+			obenL.setFilled(true);
+			obenL.setColor(Color.BLUE);
+			add(obenL);
+		}
+
+	}
+
+	/**
+	 * Winkel-Objekt unten links.
+	 * 
+	 * @author olegattow
+	 *
+	 */
+	class UntenLinks extends GCompound {
+
+		public UntenLinks() {
+			GPolygon obenL = new GPolygon();
+			obenL.addPolarEdge(200, 90);
+			obenL.addPolarEdge(100, 0);
+			obenL.addPolarEdge(100, 270);
+			obenL.addPolarEdge(100, 0);
+			obenL.addPolarEdge(100, 270);
+			obenL.addPolarEdge(200, 180);
+			// (5, 415)
+			// obenL.setLocation(x, y);
+			obenL.setFilled(true);
+			obenL.setColor(Color.YELLOW);
+			add(obenL);
+		}
+
+	}
+
+	/**
+	 * Winkel-Objekt unten rechts.
+	 * 
+	 * @author olegattow
+	 *
+	 */
+	class UntenRechts extends GCompound {
+
+		public UntenRechts() {
+			GPolygon obenL = new GPolygon();
+			obenL.addPolarEdge(100, 90);
+			obenL.addPolarEdge(100, 0);
+			obenL.addPolarEdge(100, 90);
+			obenL.addPolarEdge(100, 0);
+			obenL.addPolarEdge(200, 270);
+			obenL.addPolarEdge(200, 180);
+			// (215, 415)
+			// obenL.setLocation(x, y);
+			obenL.setFilled(true);
+			obenL.setColor(Color.GREEN);
+			add(obenL);
+
+		}
+
+	}
+
+	/**
+	 * Rechteck.
+	 * 
+	 * @author olegattow
+	 *
+	 */
+	class Rechteck extends GCompound {
+
+		public Rechteck() {
+			GPolygon obenL = new GPolygon();
+			obenL.addPolarEdge(200, 90);
+			obenL.addPolarEdge(200, 0);
+			obenL.addPolarEdge(200, 270);
+			obenL.addPolarEdge(200, 180);
+			// (110, 310)
+			// obenL.setLocation(x, y);
+			obenL.setFilled(true);
+			obenL.setColor(Color.ORANGE);
+			add(obenL);
+		}
+
+	}
+
 }
