@@ -17,6 +17,8 @@ public class Puzzle extends GraphicsProgram{
 		GView gview = new GView();
 		add(gview);
 		world.registerView(gview);
+		
+		new GController(world, this);
 
 		
 	}
