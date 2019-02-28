@@ -1,7 +1,6 @@
 package de.cau.infprogoo.lighthouse;
 
 import java.awt.Color;
-
 import acm.graphics.GCompound;
 import acm.graphics.GLine;
 import acm.graphics.GPolygon;
@@ -11,7 +10,7 @@ public class GView extends GCompound implements View {
 	final static int WIDTH = 400;
 	final static int HEIGHT = 600;
 	// The background where we play in
-	private final GLine backGrounder;
+//	private final GLine backGrounder;
 	// Our pieces
 	private final ObenLinks obenLinks;
 	private final ObenRechts obenRechts;
@@ -36,14 +35,14 @@ public class GView extends GCompound implements View {
 		rechteck = new Rechteck();
 		add(rechteck);
 
-		backGrounder = gitter();
+//		backGrounder = gitter();
 
 		// startposition
-		obenLinks.setLocation(5, 205);
-		obenRechts.setLocation(215, 105);
-		untenLinks.setLocation(5, 415);
-		untenRechts.setLocation(215, 415);
-		rechteck.setLocation(110, 310);
+//		obenLinks.setLocation(5, 205);
+//		obenRechts.setLocation(215, 105);
+//		untenLinks.setLocation(5, 415);
+//		untenRechts.setLocation(215, 415);
+//		rechteck.setLocation(110, 310);
 
 	}
 
@@ -51,22 +50,26 @@ public class GView extends GCompound implements View {
 	public void update(Model model) {
 		double cellWidth = WIDTH / model.getWIDTH();
 		double cellHeight = HEIGHT / model.getHEIGHT();
-
-		// obenRechts.setLocation(x, y);
+		// Location update
+		obenRechts.setLocation(model.getPlayerORX() * cellWidth, model.getPlayerORY() * cellHeight);
+		obenLinks.setLocation(model.getPlayerOLX() * cellWidth, model.getPlayerOLY() * cellHeight);
+		untenLinks.setLocation(model.getPlayerULX() * cellWidth, model.getPlayerULY() * cellHeight);
+		untenRechts.setLocation(model.getPlayerURX() * cellWidth, model.getPlayerURY() * cellHeight);
+		rechteck.setLocation(model.getPlayerRX() * cellWidth, model.getPlayerRY() * cellHeight);
 
 	}
 
-	public GLine gitter() {
-		for (int i = 0; i < 7; i++) {
-			GLine obenL = new GLine(0, 0 + i * 105, 420, 0 + i * 105);
-			add(obenL);
-		}
-		for (int i = 0; i < 5; i++) {
-			GLine obenL = new GLine(0 + i * 105, 0, 0 + i * 105, 630);
-			add(obenL);
-		}
-		return backGrounder;
-	}
+//	public GLine gitter() {
+//		for (int i = 0; i < 7; i++) {
+//			GLine obenL = new GLine(0, 0 + i * 105, 420, 0 + i * 105);
+//			add(obenL);
+//		}
+//		for (int i = 0; i < 5; i++) {
+//			GLine obenL = new GLine(0 + i * 105, 0, 0 + i * 105, 630);
+//			add(obenL);
+//		}
+//		return backGrounder;
+//	}
 
 	/**
 	 * Winkel-Objekt oben links.

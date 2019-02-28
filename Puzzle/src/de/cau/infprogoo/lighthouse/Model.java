@@ -20,16 +20,21 @@ public class Model {
 	//Spielfeld den Playern zuordnen
 	
 
-//Position of the player in a 2D Array
-	private int playerOL = 1;
+	//Position of the player
+	private int playerOLX = 0;
+	private int playerOLY = 2;
+	
+	private int playerORX = 2;
+	private int playerORY = 1;
 
-	private int playerOR = 2;
+	private int playerRX = 1;
+	private int playerRY = 3;
 
-	private int playerR = 3;
+	private int playerULX = 0;
+	private int playerULY = 4;
 
-	private int playerUL = 4;
-
-	private int playerUR = 5;
+	private int playerURX = 2;
+	private int playerURY = 4;
 
 	public Model(int width, int height) {
 
@@ -63,6 +68,96 @@ public class Model {
 		}
 	}
 
+	public int getPlayerOLX() {
+		return playerOLX;
+	}
+
+	public void setPlayerOLX(int playerOLX) {
+		this.playerOLX = playerOLX;
+		updateViews();
+	}
+
+	public int getPlayerOLY() {
+		return playerOLY;
+	}
+
+	public void setPlayerOLY(int playerOLY) {
+		this.playerOLY = playerOLY;
+		updateViews();
+	}
+
+	public int getPlayerORX() {
+		return playerORX;
+	}
+
+	public void setPlayerORX(int playerORX) {
+		this.playerORX = playerORX;
+		updateViews();
+	}
+
+	public int getPlayerORY() {
+		return playerORY;
+	}
+
+	public void setPlayerORY(int playerORY) {
+		this.playerORY = playerORY;
+		updateViews();
+	}
+
+	public int getPlayerRX() {
+		return playerRX;
+	}
+
+	public void setPlayerRX(int playerRX) {
+		this.playerRX = playerRX;
+		updateViews();
+	}
+
+	public int getPlayerRY() {
+		return playerRY;
+	}
+
+	public void setPlayerRY(int playerRY) {
+		this.playerRY = playerRY;
+		updateViews();
+	}
+
+	public int getPlayerULX() {
+		return playerULX;
+	}
+
+	public void setPlayerULX(int playerULX) {
+		this.playerULX = playerULX;
+		updateViews();
+	}
+
+	public int getPlayerULY() {
+		return playerULY;
+	}
+
+	public void setPlayerULY(int playerULY) {
+		this.playerULY = playerULY;
+		updateViews();
+	}
+
+	public int getPlayerURX() {
+		return playerURX;
+	}
+
+	public void setPlayerURX(int playerURX) {
+		this.playerURX = playerURX;
+		updateViews();
+	}
+
+	public int getPlayerURY() {
+		return playerURY;
+	}
+
+	public void setPlayerURY(int playerURY) {
+		this.playerURY = playerURY;
+		updateViews();
+	}
+
 	public int getWIDTH() {
 		return WIDTH;
 	}
@@ -71,50 +166,7 @@ public class Model {
 		return HEIGHT;
 	}
 
-	public int getPlayerOL() {
-		return playerOL;
-	}
-
-	public void setPlayerOL(int playerOL) {
-		this.playerOL = playerOL;
-		updateViews();
-	}
-
-	public int getPlayerOR() {
-		return playerOR;
-	}
-
-	public void setPlayerOR(int playerOR) {
-		this.playerOR = playerOR;
-		updateViews();
-	}
-
-	public int getPlayerR() {
-		return playerR;
-	}
-
-	public void setPlayerR(int playerR) {
-		this.playerR = playerR;
-		updateViews();
-	}
-
-	public int getPlayerUL() {
-		return playerUL;
-	}
-
-	public void setPlayerUL(int playerUL) {
-		this.playerUL = playerUL;
-		updateViews();
-	}
-
-	public int getPlayerUR() {
-		return playerUR;
-	}
-
-	public void setPlayerUR(int playerUR) {
-		this.playerUR = playerUR;
-		updateViews();
-	}
+	
 
 	
 }
