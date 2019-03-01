@@ -3,8 +3,6 @@ package de.cau.infprogoo.lighthouse;
 import java.util.HashSet;
 import java.util.Set;
 
-
-
 /**
  * This class is our Model. It contains the skeletal structure of our game. It
  * represents the current state of the game.
@@ -12,18 +10,19 @@ import java.util.Set;
  */
 public class Model {
 
-	int[] spielfeld = {1,1,2,2,1,3,3,2,4,3,3,5,4,4,5,5,0,0,0,0,0,0,0,0};
+	int[] spielfeld = { 1, 1, 2, 2, 1, 3, 3, 2, 4, 3, 3, 5, 4, 4, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	private final int WIDTH;
 	private final int HEIGHT;
-	
-	//Spielfeld den Playern zuordnen
+
 	
 
-	//Position of the player
+	// Spielfeld den Playern zuordnen
+
+	// Position of the player
 	private int playerOLX = 0;
 	private int playerOLY = 2;
-	
+
 	private int playerORX = 2;
 	private int playerORY = 1;
 
@@ -40,14 +39,14 @@ public class Model {
 
 		this.WIDTH = width;
 		this.HEIGHT = height;
+
 		
-		
+
 	}
-	
-	
+
 	/** Set of views registered to be notified of world updates. */
 	private final Set<View> views = new HashSet<>();
-	
+
 	/**
 	 * Adds the given view of the world and updates it once. Once registered through
 	 * this method, the view will receive updates whenever the world changes.
@@ -166,7 +165,4 @@ public class Model {
 		return HEIGHT;
 	}
 
-	
-
-	
 }
