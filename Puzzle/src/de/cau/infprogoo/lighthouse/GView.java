@@ -2,6 +2,7 @@ package de.cau.infprogoo.lighthouse;
 
 import java.awt.Color;
 import acm.graphics.GCompound;
+import acm.graphics.GLabel;
 import acm.graphics.GLine;
 import acm.graphics.GPolygon;
 
@@ -92,6 +93,9 @@ public class GView extends GCompound implements View {
 			obenL.setFilled(true);
 			obenL.setColor(Color.RED);
 			add(obenL);
+			GLabel nummer = new GLabel("1");
+			nummer.setLocation(50, -100);
+			add(nummer);
 		}
 
 	}
@@ -117,6 +121,9 @@ public class GView extends GCompound implements View {
 			obenL.setFilled(true);
 			obenL.setColor(Color.BLUE);
 			add(obenL);
+			GLabel nummer = new GLabel("2");
+			nummer.setLocation(150, 0);
+			add(nummer);
 		}
 
 	}
@@ -142,6 +149,9 @@ public class GView extends GCompound implements View {
 			obenL.setFilled(true);
 			obenL.setColor(Color.YELLOW);
 			add(obenL);
+			GLabel nummer = new GLabel("3");
+			nummer.setLocation(50, -100);
+			add(nummer);
 		}
 
 	}
@@ -167,6 +177,9 @@ public class GView extends GCompound implements View {
 			obenL.setFilled(true);
 			obenL.setColor(Color.GREEN);
 			add(obenL);
+			GLabel nummer = new GLabel("4");
+			nummer.setLocation(150, -100);
+			add(nummer);
 
 		}
 
@@ -191,6 +204,9 @@ public class GView extends GCompound implements View {
 			obenL.setFilled(true);
 			obenL.setColor(Color.ORANGE);
 			add(obenL);
+			GLabel nummer = new GLabel("5");
+			nummer.setLocation(100, -100);
+			add(nummer);
 		}
 
 	}
