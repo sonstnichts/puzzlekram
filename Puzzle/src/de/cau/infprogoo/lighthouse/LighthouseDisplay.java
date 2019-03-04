@@ -26,7 +26,7 @@ import org.msgpack.core.MessagePack;
  * interface. The network connection is configured upon object creation but
  * needs to manually connect. Afterwards data can be sent to the lighthouse.
  */
-public class LighthouseDisplay {
+public class LighthouseDisplay implements View{
 
 	private String username;
 	private String token;
@@ -325,6 +325,18 @@ public class LighthouseDisplay {
 			error.printStackTrace(System.err);
 			System.err.println(session);
 		}
+	}
+
+	@Override
+	public void update(Model world) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	class ObenLinks{
+		
+		
+		
 	}
 
 }
