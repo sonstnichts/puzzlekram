@@ -9,13 +9,9 @@ import java.util.Set;
  *
  */
 public class Model {
-
-	int[] spielfeld = { 1, 1, 2, 2, 1, 3, 3, 2, 4, 3, 3, 5, 4, 4, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0 };
-
+	public static int count;
 	private final int WIDTH;
 	private final int HEIGHT;
-
-	
 
 	// Spielfeld den Playern zuordnen
 
@@ -40,8 +36,6 @@ public class Model {
 		this.WIDTH = width;
 		this.HEIGHT = height;
 
-		
-
 	}
 
 	/** Set of views registered to be notified of world updates. */
@@ -56,6 +50,7 @@ public class Model {
 	public void registerView(View view) {
 		views.add(view);
 		view.update(this);
+		
 	}
 
 	/**
@@ -64,7 +59,30 @@ public class Model {
 	private void updateViews() {
 		for (View view : views) {
 			view.update(this);
+			count++;
+			System.out.println(count);
+			
 		}
+	}
+
+	public void restart() {
+		playerOLX = 0;
+		playerOLY = 2;
+
+		playerORX = 2;
+		playerORY = 1;
+
+		playerRX = 1;
+		playerRY = 3;
+
+		playerULX = 0;
+		playerULY = 4;
+
+		playerURX = 2;
+		playerURY = 4;
+		
+		updateViews();
+
 	}
 
 	public int getPlayerOLX() {
