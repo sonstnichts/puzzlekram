@@ -13,6 +13,7 @@ public class GView extends GCompound implements View {
 	// The background where we play in
 //	private final GLine backGrounder;
 	// Our pieces
+	private final GLine backGrounder;
 	private final ObenLinks obenLinks;
 	private final ObenRechts obenRechts;
 	private final UntenLinks untenLinks;
@@ -36,7 +37,7 @@ public class GView extends GCompound implements View {
 		rechteck = new Rechteck();
 		add(rechteck);
 
-//		backGrounder = gitter();
+		backGrounder = gitter();
 
 		// startposition
 //		obenLinks.setLocation(5, 205);
@@ -60,17 +61,17 @@ public class GView extends GCompound implements View {
 
 	}
 
-//	public GLine gitter() {
-//		for (int i = 0; i < 7; i++) {
-//			GLine obenL = new GLine(0, 0 + i * 105, 420, 0 + i * 105);
-//			add(obenL);
-//		}
-//		for (int i = 0; i < 5; i++) {
-//			GLine obenL = new GLine(0 + i * 105, 0, 0 + i * 105, 630);
-//			add(obenL);
-//		}
-//		return backGrounder;
-//	}
+	public GLine gitter() {
+		for (int i = 0; i < 7; i++) {
+			GLine obenL = new GLine(0, 0 + i * 100,400 , 0 + i * 100);
+			add(obenL);
+		}
+		for (int i = 0; i < 5; i++) {
+			GLine obenL = new GLine(0 + i * 100, 0, 0 + i * 100, 600);
+			add(obenL);
+		}
+		return backGrounder;
+	}
 
 	/**
 	 * Winkel-Objekt oben links.
@@ -192,9 +193,10 @@ public class GView extends GCompound implements View {
 	 *
 	 */
 	class Rechteck extends GCompound {
+		
+		GPolygon obenL = new GPolygon();
 
 		public Rechteck() {
-			GPolygon obenL = new GPolygon();
 			obenL.addPolarEdge(200, 90);
 			obenL.addPolarEdge(200, 0);
 			obenL.addPolarEdge(200, 270);
@@ -208,6 +210,7 @@ public class GView extends GCompound implements View {
 			nummer.setLocation(100, -100);
 			add(nummer);
 		}
+		
 
 	}
 
