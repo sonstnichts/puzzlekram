@@ -8,10 +8,10 @@ import acm.graphics.GPolygon;
 
 public class GView extends GCompound implements View {
 
+	
 	final static int WIDTH = 400;
 	final static int HEIGHT = 600;
-	// The background where we play in
-//	private final GLine backGrounder;
+
 	// Our pieces
 	private final GLine backGrounder;
 	private final ObenLinks obenLinks;
@@ -39,13 +39,6 @@ public class GView extends GCompound implements View {
 
 		backGrounder = gitter();
 
-		// startposition
-//		obenLinks.setLocation(5, 205);
-//		obenRechts.setLocation(215, 105);
-//		untenLinks.setLocation(5, 415);
-//		untenRechts.setLocation(215, 415);
-//		rechteck.setLocation(110, 310);
-
 	}
 
 	@Override
@@ -63,7 +56,7 @@ public class GView extends GCompound implements View {
 
 	public GLine gitter() {
 		for (int i = 0; i < 7; i++) {
-			GLine obenL = new GLine(0, 0 + i * 100,400 , 0 + i * 100);
+			GLine obenL = new GLine(0, 0 + i * 100, 400, 0 + i * 100);
 			add(obenL);
 		}
 		for (int i = 0; i < 5; i++) {
@@ -89,8 +82,6 @@ public class GView extends GCompound implements View {
 			obenL.addPolarEdge(100, 180);
 			obenL.addPolarEdge(100, 270);
 			obenL.addPolarEdge(100, 180);
-			// muss an (5,205) sein in der Grundaufstellung
-			// obenL.setLocation(x, y);
 			obenL.setFilled(true);
 			obenL.setColor(Color.RED);
 			add(obenL);
@@ -117,8 +108,6 @@ public class GView extends GCompound implements View {
 			obenL.addPolarEdge(100, 180);
 			obenL.addPolarEdge(100, 90);
 			obenL.addPolarEdge(100, 180);
-			// (215, 105)
-			// obenL.setLocation(x, y);
 			obenL.setFilled(true);
 			obenL.setColor(Color.BLUE);
 			add(obenL);
@@ -145,8 +134,6 @@ public class GView extends GCompound implements View {
 			obenL.addPolarEdge(100, 0);
 			obenL.addPolarEdge(100, 270);
 			obenL.addPolarEdge(200, 180);
-			// (5, 415)
-			// obenL.setLocation(x, y);
 			obenL.setFilled(true);
 			obenL.setColor(Color.YELLOW);
 			add(obenL);
@@ -173,8 +160,6 @@ public class GView extends GCompound implements View {
 			obenL.addPolarEdge(100, 0);
 			obenL.addPolarEdge(200, 270);
 			obenL.addPolarEdge(200, 180);
-			// (215, 415)
-			// obenL.setLocation(x, y);
 			obenL.setFilled(true);
 			obenL.setColor(Color.GREEN);
 			add(obenL);
@@ -193,7 +178,7 @@ public class GView extends GCompound implements View {
 	 *
 	 */
 	class Rechteck extends GCompound {
-		
+
 		GPolygon obenL = new GPolygon();
 
 		public Rechteck() {
@@ -201,8 +186,6 @@ public class GView extends GCompound implements View {
 			obenL.addPolarEdge(200, 0);
 			obenL.addPolarEdge(200, 270);
 			obenL.addPolarEdge(200, 180);
-			// (110, 310)
-			// obenL.setLocation(x, y);
 			obenL.setFilled(true);
 			obenL.setColor(Color.ORANGE);
 			add(obenL);
@@ -210,7 +193,6 @@ public class GView extends GCompound implements View {
 			nummer.setLocation(100, -100);
 			add(nummer);
 		}
-		
 
 	}
 

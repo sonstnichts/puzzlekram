@@ -1,7 +1,6 @@
 package de.cau.infprogoo.lighthouse;
 
 import java.awt.Color;
-import java.io.IOException;
 
 import acm.program.GraphicsProgram;
 
@@ -20,10 +19,9 @@ public class Puzzle extends GraphicsProgram{
 		model.registerView(gview);
 	
 		
-//		
-//		LighthouseView display = new LighthouseView("die_dicke_KATZE", "API-TOK_Aem9-K+La-ibUC-H41Q-Ub2o");
-//		display.connect();
-//		model.registerView(display);
+		LighthouseView display = new LighthouseView("die_dicke_KATZE", "API-TOK_Aem9-K+La-ibUC-H41Q-Ub2o");
+		display.connect();
+		model.registerView(display);
 		
 	
 		new GController(model, this);

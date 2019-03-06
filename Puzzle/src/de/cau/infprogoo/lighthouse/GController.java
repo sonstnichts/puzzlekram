@@ -7,7 +7,7 @@ public class GController implements KeyListener {
 
 	/** The world that is updated upon every key press. */
 	private Model model;
-	
+
 	private int count;
 
 	/**
@@ -30,39 +30,21 @@ public class GController implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+
 		// Saves the keycode between 1-5 to choose a Piece
 		if (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3
 				|| e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5) {
 			previous = e.getKeyCode();
-			//System.out.println(previous);
+
 		}
-		
-		if(e.getKeyCode() == KeyEvent.VK_P) {
-			System.out.print("0000000000000");
-			System.out.println(model.getPlayerOLX());
-			System.out.println(model.getPlayerOLY());
-			System.out.println(model.getPlayerORX());
-			System.out.println(model.getPlayerORY());
-			System.out.println(model.getPlayerULX());
-			System.out.println(model.getPlayerULY());
-			System.out.println(model.getPlayerURX());
-			System.out.println(model.getPlayerURY());
-		
-		}
-		if(model.noNazi()) {
-			model.restart();
-			previous = 0;
-			model.count = 0;
-			System.out.println("no");
-		}
-		if(e.getKeyCode() == KeyEvent.VK_R) {
+
+		if (e.getKeyCode() == KeyEvent.VK_R) {
 			model.restart();
 			previous = 0;
 			model.count = 0;
 		}
-		
-		if(e.getKeyCode() == KeyEvent.VK_W) {
+
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			model.count = 25;
 			model.win();
 			previous = 0;
@@ -74,25 +56,41 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (checkpos(1, model.getPlayerOLX(), model.getPlayerOLY())) {
 					model.setPlayerOLY(Math.max(2, model.getPlayerOLY() - 1));
-					//System.out.println("1,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (checkOL2(model.getPlayerOLX(), model.getPlayerOLY())) {
 					model.setPlayerOLY(Math.min(model.getHEIGHT(), model.getPlayerOLY() + 1));
-					//System.out.println("2,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (checkOL3(model.getPlayerOLX(), model.getPlayerOLY())) {
 					model.setPlayerOLX(Math.min(model.getWIDTH() - 2, model.getPlayerOLX() + 1));
-					//System.out.println("4,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (checkpos(4, model.getPlayerOLX(), model.getPlayerOLY())) {
 					model.setPlayerOLX(Math.max(0, model.getPlayerOLX() - 1));
-					//System.out.println("3,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			}
@@ -104,25 +102,41 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (wavecheck(1, model.getPlayerORX(), model.getPlayerORY())) {
 					model.setPlayerORY(Math.max(1, model.getPlayerORY() - 1));
-					//System.out.println("5,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (wavecheck(2, model.getPlayerORX(), model.getPlayerORY())) {
 					model.setPlayerORY(Math.min(model.getHEIGHT() - 1, model.getPlayerORY() + 1));
-					//System.out.println("6,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (wavecheck(3, model.getPlayerORX(), model.getPlayerORY())) {
 					model.setPlayerORX(Math.min(model.getWIDTH() - 2, model.getPlayerORX() + 1));
-					//System.out.println("8,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (wavecheck(4, model.getPlayerORX(), model.getPlayerORY())) {
 					model.setPlayerORX(Math.max(0, model.getPlayerORX() - 1));
-					//System.out.println("7,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			}
@@ -133,25 +147,41 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (checkUL1(model.getPlayerULX(), model.getPlayerULY())) {
 					model.setPlayerULY(Math.max(2, model.getPlayerULY() - 1));
-					//System.out.println("9,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (checkpos(2, model.getPlayerULX(), model.getPlayerULY())) {
 					model.setPlayerULY(Math.min(model.getHEIGHT(), model.getPlayerULY() + 1));
-					//System.out.println("10,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (checkUL3(model.getPlayerULX(), model.getPlayerULY())) {
 					model.setPlayerULX(Math.min(model.getWIDTH() - 2, model.getPlayerULX() + 1));
-					//System.out.println("12,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (checkpos(4, model.getPlayerULX(), model.getPlayerULY())) {
 					model.setPlayerULX(Math.max(0, model.getPlayerULX() - 1));
-					//System.out.println("11,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			}
@@ -162,25 +192,41 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (checkUR1(model.getPlayerURX(), model.getPlayerURY())) {
 					model.setPlayerURY(Math.max(2, model.getPlayerURY() - 1));
-					//System.out.println("13,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (checkpos(2, model.getPlayerURX(), model.getPlayerURY())) {
 					model.setPlayerURY(Math.min(model.getHEIGHT(), model.getPlayerURY() + 1));
-					//System.out.println("14,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (checkpos(3, model.getPlayerURX(), model.getPlayerURY())) {
 					model.setPlayerURX(Math.min(model.getWIDTH() - 2, model.getPlayerURX() + 1));
-					//System.out.println("16,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (checkUR4(model.getPlayerURX(), model.getPlayerURY())) {
 					model.setPlayerURX(Math.max(0, model.getPlayerURX() - 1));
-					//System.out.println("15,");
+					if (model.noNazi()) {
+						model.restart();
+						previous = 0;
+					}
+
 				}
 				break;
 			}
@@ -191,25 +237,25 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (checkpos(1, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRY(Math.max(2, model.getPlayerRY() - 1));
-					//System.out.println("17,");
+
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (checkpos(2, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRY(Math.min(model.getHEIGHT(), model.getPlayerRY() + 1));
-					//System.out.println("18,");
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (checkpos(3, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRX(Math.min(model.getWIDTH() - 2, model.getPlayerRX() + 1));
-					//System.out.println("20,");
+
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (checkpos(4, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRX(Math.max(0, model.getPlayerRX() - 1));
-					//System.out.println("19,");
+
 				}
 				break;
 			}

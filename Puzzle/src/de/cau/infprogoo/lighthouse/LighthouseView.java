@@ -14,7 +14,6 @@ public class LighthouseView implements View {
 		try {
 			display.connect();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

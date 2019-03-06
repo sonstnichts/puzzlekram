@@ -61,13 +61,13 @@ public class Model {
 			view.update(this);
 			count++;
 			// System.out.println(count);
-			
 
 		}
 	}
 
 	public boolean noNazi() {
-		if (noNazi1()) {
+		if (noNazi1() || noNazi2() || noNazi3() || noNazi4() || noNazi5() || noNazi6() || noNazi7() || noNazi8()
+				|| noNazi9()) {
 			updateViews();
 			return true;
 		}
@@ -76,9 +76,46 @@ public class Model {
 	}
 
 	private boolean noNazi1() {
+		return playerOLX == 2 && playerOLY == 2 && playerORX == 2 && playerORY == 3 && playerULX == 0 && playerULY == 2
+				&& playerURX == 0 && playerURY == 4;
 
-		return playerOLX == 0 && playerOLY == 2 && playerORX == 2 && playerORY == 1 && playerRX == 1 && playerRY == 6
-				&& playerULX == 0 && playerULY == 4 && playerURX == 2 && playerURY == 4;
+	}
+
+	private boolean noNazi2() {
+		return playerOLX == 2 && playerOLY == 2 && playerORX == 2 && playerORY == 3 && playerULX == 0 && playerULY == 2;
+
+	}
+
+	private boolean noNazi3() {
+		return playerOLX == 0 && playerOLY == 4 && playerORX == 0 && playerORY == 1 && playerULX == 2 && playerULY == 4;
+
+	}
+
+	private boolean noNazi4() {
+		return playerOLX == 0 && playerOLY == 4 && playerORX == 0 && playerORY == 1 && playerURX == 2 && playerURY == 2;
+
+	}
+
+	private boolean noNazi5() {
+		return playerOLX == 2 && playerOLY == 2 && playerORX == 2 && playerORY == 3 && playerURX == 0 && playerURY == 4;
+
+	}
+
+	private boolean noNazi6() {
+		return playerOLX == 0 && playerOLY == 6 && playerULX == 2 && playerULY == 6 && playerURX == 2 && playerURY == 4;
+	}
+
+	private boolean noNazi7() {
+		return playerOLX == 2 && playerOLY == 4 && playerULX == 0 && playerULY == 4 && playerURX == 0 && playerURY == 6;
+	}
+
+	private boolean noNazi8() {
+		return playerORX == 2 && playerORY == 5 && playerULX == 0 && playerULY == 4 && playerURX == 0 && playerURY == 6;
+
+	}
+
+	private boolean noNazi9() {
+		return playerORX == 0 && playerORY == 3 && playerULX == 2 && playerULY == 6 && playerURX == 2 && playerURY == 4;
 
 	}
 
