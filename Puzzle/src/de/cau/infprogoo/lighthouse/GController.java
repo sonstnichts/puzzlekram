@@ -2,13 +2,12 @@ package de.cau.infprogoo.lighthouse;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
 
 public class GController implements KeyListener {
 
 	/** The world that is updated upon every key press. */
 	private Model model;
-
-	private int count;
 
 	/**
 	 * Speichert die zuletzt ausgewählte Figur.
@@ -20,7 +19,6 @@ public class GController implements KeyListener {
 		this.model = model;
 
 		puzzle.getGCanvas().addKeyListener(this);
-
 	}
 
 	@Override
@@ -36,6 +34,15 @@ public class GController implements KeyListener {
 				|| e.getKeyCode() == KeyEvent.VK_4 || e.getKeyCode() == KeyEvent.VK_5) {
 			previous = e.getKeyCode();
 
+		}
+
+		if (e.getKeyCode() == KeyEvent.VK_S) {
+			try {
+				solver();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_R) {
@@ -261,6 +268,82 @@ public class GController implements KeyListener {
 			}
 
 		}
+	}
+
+	private void solver() throws InterruptedException {
+		int[] rightWay = { 14, 14, 10, 10, 18, 20, 9, 9, 15, 15, 18, 18, 12, 12, 9, 2, 2, 2, 11, 11, 7, 7, 17, 17, 17,
+				17, 16, 16, 4, 4, 1, 13, 10, 10, 10, 6, 6, 6, 19, 19, 1, 1, 13, 13, 8, 8, 12, 12, 18, 18, 18, 18, 3, 3,
+				13, 5, 7, 7, 9, 9, 20, 20, 6, 6, 11, 11, 14, 14, 4, 4, 9, 9, 5, 5, 19, 19, 14, 14, 2, 2, 12, 12, 5, 5,
+				3, 3, 10, 10, 8, 8, 1, 1, 11, 11, 13, 13, 20 };
+
+		for (int i = 0; i < rightWay.length; i++) {
+
+			Thread.sleep(200);
+
+			switch (rightWay[i]) {
+			case 1: // ObenLinks/Rot nach oben
+				model.setPlayerOLY(Math.max(2, model.getPlayerOLY() - 1));
+				break;
+			case 2: // ObenLinks/Rot nach unten
+				model.setPlayerOLY(Math.min(model.getHEIGHT(), model.getPlayerOLY() + 1));
+				break;
+			case 3: // ObenLinks/Rot nach links
+				model.setPlayerOLX(Math.max(0, model.getPlayerOLX() - 1));
+				break;
+			case 4: // ObenLinks/Rot nach rechts
+				model.setPlayerOLX(Math.min(model.getWIDTH() - 2, model.getPlayerOLX() + 1));
+				break;
+			case 5: // ObenRechts/Blau nach oben
+				model.setPlayerORY(Math.max(1, model.getPlayerORY() - 1));
+				break;
+			case 6: // ObenRechts/Blau nach unten
+				model.setPlayerORY(Math.min(model.getHEIGHT() - 1, model.getPlayerORY() + 1));
+				break;
+			case 7: // ObenRechts/Blau nach links
+				model.setPlayerORX(Math.max(0, model.getPlayerORX() - 1));
+				break;
+			case 8: // ObenRechts/Blau nach rechts
+				model.setPlayerORX(Math.min(model.getWIDTH() - 2, model.getPlayerORX() + 1));
+				break;
+			case 9:// UntenLinks/Gelb hoch
+				model.setPlayerULY(Math.max(2, model.getPlayerULY() - 1));
+				break;
+			case 10: // UntenLinks/Gelb nach unten
+				model.setPlayerULY(Math.min(model.getHEIGHT(), model.getPlayerULY() + 1));
+				break;
+			case 11: // UntenLinks/Gelb nach links
+				model.setPlayerULX(Math.max(0, model.getPlayerULX() - 1));
+				break;
+			case 12: // UntenLinks/Gelb nach rechts
+				model.setPlayerULX(Math.min(model.getWIDTH() - 2, model.getPlayerULX() + 1));
+				break;
+			case 13: // UntenRechts/Grün nach oben
+				model.setPlayerURY(Math.max(2, model.getPlayerURY() - 1));
+				break;
+			case 14: // UntenRechts/Grün nach unten
+				model.setPlayerURY(Math.min(model.getHEIGHT(), model.getPlayerURY() + 1));
+				break;
+			case 15: // UntenRechts/Grün nach links
+				model.setPlayerURX(Math.max(0, model.getPlayerURX() - 1));
+				break;
+			case 16: // UntenRechts/Grün nach rechts
+				model.setPlayerURX(Math.min(model.getWIDTH() - 2, model.getPlayerURX() + 1));
+				break;
+			case 17: // Rechteck/Orange nach oben
+				model.setPlayerRY(Math.max(2, model.getPlayerRY() - 1));
+				break;
+			case 18: // Rechteck/Orange nach unten
+				model.setPlayerRY(Math.min(model.getHEIGHT(), model.getPlayerRY() + 1));
+				break;
+			case 19: // Rechteck/Orange nach links
+				model.setPlayerRX(Math.max(0, model.getPlayerRX() - 1));
+				break;
+			case 20: // Rechteck/Orange nach rechts
+				model.setPlayerRX(Math.min(model.getWIDTH() - 2, model.getPlayerRX() + 1));
+				break;
+			}
+		}
+
 	}
 
 	private boolean checkUR1(int x, int y) {

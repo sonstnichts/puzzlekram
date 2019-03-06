@@ -15,13 +15,13 @@ public class Puzzle extends GraphicsProgram{
 
 		// Create two views and let the world know about them
 		GView gview = new GView();
-		add(gview);
 		model.registerView(gview);
+		add(gview);
 	
 		
 		LighthouseView display = new LighthouseView("die_dicke_KATZE", "API-TOK_Aem9-K+La-ibUC-H41Q-Ub2o");
-		display.connect();
 		model.registerView(display);
+		display.connect();
 		
 	
 		new GController(model, this);
