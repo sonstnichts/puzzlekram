@@ -56,7 +56,7 @@ public class Model {
 	/**
 	 * Updates all views by calling their {@link View#update(World)} methods.
 	 */
-	public void updateViews() {
+	private void updateViews() {
 		for (View view : views) {
 			view.update(this);
 		}
