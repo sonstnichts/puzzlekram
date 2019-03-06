@@ -43,6 +43,12 @@ public class GController implements KeyListener {
 			previous = 0;
 			model.count = 0;
 		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_W) {
+			model.count = 25;
+			model.win();
+			previous = 0;
+		}
 
 		// ObenLinks bewegt sich (rot)
 		if (previous == KeyEvent.VK_1) {
