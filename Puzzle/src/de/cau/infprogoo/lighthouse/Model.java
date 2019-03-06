@@ -60,9 +60,28 @@ public class Model {
 		for (View view : views) {
 			view.update(this);
 			count++;
-			System.out.println(count);
+			//System.out.println(count);
 			
 		}
+	}
+	
+	public void win() {
+		playerOLX = 0;
+		playerOLY = 2;
+
+		playerORX = 2;
+		playerORY = 1;
+
+		playerRX = 1;
+		playerRY = 6;
+
+		playerULX = 0;
+		playerULY = 4;
+
+		playerURX = 2;
+		playerURY = 4;
+		
+		updateViews();
 	}
 
 	public void restart() {
