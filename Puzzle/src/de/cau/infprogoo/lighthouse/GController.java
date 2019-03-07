@@ -11,7 +11,7 @@ public class GController implements KeyListener {
 	/**
 	 * Speichert die zuletzt ausgewählte Figur.
 	 */
-	private int previous;
+	public int previous;
 
 	public GController(Model model, Puzzle puzzle) {
 
@@ -37,7 +37,8 @@ public class GController implements KeyListener {
 		// Auto-Solver
 		if (e.getKeyCode() == KeyEvent.VK_S) {
 			try {
-				solver();
+					solver();
+				
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -277,8 +278,8 @@ public class GController implements KeyListener {
 	}
 
 	private void solver() throws InterruptedException {
-		int[] rightWay = {14, 14, 10, 10, 18, 19, 6, 6, 4, 4, 17, 17, 7, 7, 13, 13, 13, 6, 8, 8, 6, 14, 15, 15, 5, 12,
-				12, 14, 14, 18, 18, 3, 3, 5, 5, 5, 9, 9, 16, 16, 18, 18, 11, 11, 13, 13, 20};
+		int[] rightWay = { 14, 14, 10, 10, 18, 19, 6, 6, 4, 4, 17, 17, 7, 7, 13, 13, 13, 6, 8, 8, 6, 14, 15, 15, 5, 12,
+				12, 14, 14, 18, 18, 3, 3, 5, 5, 5, 9, 9, 16, 16, 18, 18, 11, 11, 13, 13, 20 };
 
 		for (int i = 0; i < rightWay.length; i++) {
 

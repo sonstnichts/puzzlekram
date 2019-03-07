@@ -21,6 +21,7 @@ public class GView extends GCompound implements View {
 	private final Rechteck rechteck;
 
 	public GView() {
+		
 		// Figuren initialisieren
 		obenLinks = new ObenLinks();
 		add(obenLinks);
@@ -62,8 +63,11 @@ public class GView extends GCompound implements View {
 		untenLinks.setLocation(model.getPlayerULX() * cellWidth, model.getPlayerULY() * cellHeight);
 		untenRechts.setLocation(model.getPlayerURX() * cellWidth, model.getPlayerURY() * cellHeight);
 		rechteck.setLocation(model.getPlayerRX() * cellWidth, model.getPlayerRY() * cellHeight);
-
+		
 	}
+	
+
+	
 
 	public GLine gitter() {
 		for (int i = 0; i < 7; i++) {

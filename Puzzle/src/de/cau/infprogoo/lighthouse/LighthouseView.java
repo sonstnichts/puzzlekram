@@ -45,8 +45,6 @@ public class LighthouseView implements View {
 
 	}
 
-	
-
 	private byte[] coloringFrame(Model world, byte[] test) {
 
 		for (int i = 0; i < 28; i++) {
@@ -70,6 +68,7 @@ public class LighthouseView implements View {
 		int y = world.getPlayerRY();
 
 		for (int i = 0; i < 10; i++) {
+
 			test[14 + (y * 168) + (x * 15) + 3 * i] = (byte) 255;
 			test[14 + (y * 168) + (x * 15) + (3 * i) - 84] = (byte) 255;
 			test[13 + (y * 168) + (x * 15) + 3 * i] = (byte) 245;
@@ -157,7 +156,5 @@ public class LighthouseView implements View {
 		return test;
 
 	}
-
-	
 
 }
