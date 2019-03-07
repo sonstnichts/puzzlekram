@@ -38,6 +38,17 @@ public class GView extends GCompound implements View {
 		add(rechteck);
 
 		backGrounder = gitter();
+		
+		GLabel anleitung = new GLabel("Klicken für Start", 0,610);
+		GLabel anleitung2 = new GLabel("Figur mit 1-5 auswählen", 0, 625);
+		GLabel anleitung3 = new GLabel("Pfeiltasten zum Steuern", 0, 640);
+		GLabel anleitung4 = new GLabel("R - Reset", 0, 655);
+		GLabel anleitung5 = new GLabel("Q - Quit", 200, 610);
+		add(anleitung5);
+		add(anleitung4);
+		add(anleitung3);
+		add(anleitung2);
+		add(anleitung);
 
 	}
 

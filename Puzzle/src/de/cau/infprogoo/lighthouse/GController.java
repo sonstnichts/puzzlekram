@@ -2,7 +2,6 @@ package de.cau.infprogoo.lighthouse;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Timer;
 
 public class GController implements KeyListener {
 
@@ -35,7 +34,7 @@ public class GController implements KeyListener {
 			previous = e.getKeyCode();
 
 		}
-
+		// Auto-Solver
 		if (e.getKeyCode() == KeyEvent.VK_S) {
 			try {
 				solver();
@@ -44,13 +43,19 @@ public class GController implements KeyListener {
 				e1.printStackTrace();
 			}
 		}
+		// QUIT
+		if (e.getKeyCode() == KeyEvent.VK_Q) {
+			System.exit(1);
+		}
 
+		// Reset
 		if (e.getKeyCode() == KeyEvent.VK_R) {
 			model.restart();
 			previous = 0;
 			model.count = 0;
 		}
 
+		// Instant WIN
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			model.count = 25;
 			model.win();
@@ -67,6 +72,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
+					System.out.println("1,");
 
 				}
 				break;
@@ -77,7 +83,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("2,");
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -87,7 +93,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("4,");
 				}
 				break;
 			case KeyEvent.VK_LEFT:
@@ -97,7 +103,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("3,");
 				}
 				break;
 			}
@@ -113,7 +119,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("5,");
 				}
 				break;
 			case KeyEvent.VK_DOWN:
@@ -123,7 +129,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("6,");
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -133,7 +139,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("8,");
 				}
 				break;
 			case KeyEvent.VK_LEFT:
@@ -143,7 +149,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("7,");
 				}
 				break;
 			}
@@ -158,7 +164,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("9,");
 				}
 				break;
 			case KeyEvent.VK_DOWN:
@@ -168,7 +174,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("10,");
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -178,7 +184,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("12,");
 				}
 				break;
 			case KeyEvent.VK_LEFT:
@@ -188,7 +194,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("11,");
 				}
 				break;
 			}
@@ -203,7 +209,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("13,");
 				}
 				break;
 			case KeyEvent.VK_DOWN:
@@ -213,7 +219,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("14,");
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -223,7 +229,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("16,");
 				}
 				break;
 			case KeyEvent.VK_LEFT:
@@ -233,7 +239,7 @@ public class GController implements KeyListener {
 						model.restart();
 						previous = 0;
 					}
-
+					System.out.println("15,");
 				}
 				break;
 			}
@@ -244,25 +250,25 @@ public class GController implements KeyListener {
 			case KeyEvent.VK_UP:
 				if (checkpos(1, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRY(Math.max(2, model.getPlayerRY() - 1));
-
+					System.out.println("17,");
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (checkpos(2, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRY(Math.min(model.getHEIGHT(), model.getPlayerRY() + 1));
-
+					System.out.println("18,");
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (checkpos(3, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRX(Math.min(model.getWIDTH() - 2, model.getPlayerRX() + 1));
-
+					System.out.println("20,");
 				}
 				break;
 			case KeyEvent.VK_LEFT:
 				if (checkpos(4, model.getPlayerRX(), model.getPlayerRY())) {
 					model.setPlayerRX(Math.max(0, model.getPlayerRX() - 1));
-
+					System.out.println("19,");
 				}
 				break;
 			}
@@ -271,10 +277,8 @@ public class GController implements KeyListener {
 	}
 
 	private void solver() throws InterruptedException {
-		int[] rightWay = { 14, 14, 10, 10, 18, 20, 9, 9, 15, 15, 18, 18, 12, 12, 9, 2, 2, 2, 11, 11, 7, 7, 17, 17, 17,
-				17, 16, 16, 4, 4, 1, 13, 10, 10, 10, 6, 6, 6, 19, 19, 1, 1, 13, 13, 8, 8, 12, 12, 18, 18, 18, 18, 3, 3,
-				13, 5, 7, 7, 9, 9, 20, 20, 6, 6, 11, 11, 14, 14, 4, 4, 9, 9, 5, 5, 19, 19, 14, 14, 2, 2, 12, 12, 5, 5,
-				3, 3, 10, 10, 8, 8, 1, 1, 11, 11, 13, 13, 20 };
+		int[] rightWay = {14, 14, 10, 10, 18, 19, 6, 6, 4, 4, 17, 17, 7, 7, 13, 13, 13, 6, 8, 8, 6, 14, 15, 15, 5, 12,
+				12, 14, 14, 18, 18, 3, 3, 5, 5, 5, 9, 9, 16, 16, 18, 18, 11, 11, 13, 13, 20};
 
 		for (int i = 0; i < rightWay.length; i++) {
 
